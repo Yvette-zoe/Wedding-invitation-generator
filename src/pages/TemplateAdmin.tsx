@@ -233,16 +233,25 @@ export function TemplateAdmin() {
         })}
       </ul>
 
-      <button
-        type="button"
-        className="btn btn--primary"
-        onClick={() => {
-          setView('wizard');
-          setStep(1);
-        }}
-      >
-        返回选择模板
-      </button>
+      <div className="admin-footer">
+        <button
+          type="button"
+          className="btn btn--primary"
+          onClick={() => setView('workbench')}
+        >
+          开发者工作台
+        </button>
+        <button
+          type="button"
+          className="btn btn--ghost"
+          onClick={() => {
+            setView('wizard');
+            setStep(1);
+          }}
+        >
+          返回选择模板
+        </button>
+      </div>
     </section>
   );
 }
