@@ -5,7 +5,7 @@ import { idbGet, idbSet } from '../utils/idb';
 import { api } from '../api/client';
 
 export type WizardStep = 1 | 2 | 3 | 4;
-export type AppView = 'wizard' | 'admin';
+export type AppView = 'wizard' | 'admin' | 'workbench';
 
 const DRAFT_KEY = 'wedding-invitation-draft';
 

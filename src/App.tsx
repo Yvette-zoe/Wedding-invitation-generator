@@ -4,6 +4,7 @@ import { ContentForm } from './pages/ContentForm';
 import { GuestManager } from './pages/GuestManager';
 import { ExportStudio } from './pages/ExportStudio';
 import { TemplateAdmin } from './pages/TemplateAdmin';
+import { TemplateWorkbench } from './pages/TemplateWorkbench';
 
 const STEPS: { id: WizardStep; label: string }[] = [
   { id: 1, label: '模板' },
@@ -24,7 +25,7 @@ function Shell() {
     step === 1 ? '使用此模板' : step === 2 ? '下一步 · 宾客' : step === 3 ? '下一步 · 导出' : '';
 
   return (
-    <div className={`app ${view === 'admin' ? 'app--admin' : ''}`}>
+    <div className={`app ${view === 'admin' || view === 'workbench' ? 'app--admin' : ''}`}>
       <header className="topbar">
         <div>
           <p className="topbar__en">Wedding Atelier</p>
@@ -33,6 +34,10 @@ function Shell() {
         {view === 'wizard' ? (
           <button type="button" className="topbar__link" onClick={() => setView('admin')}>
             模板库
+          </button>
+        ) : view === 'workbench' ? (
+          <button type="button" className="topbar__link" onClick={() => setView('admin')}>
+            返回管理
           </button>
         ) : (
           <button type="button" className="topbar__link" onClick={() => setView('wizard')}>
@@ -44,6 +49,10 @@ function Shell() {
       {view === 'admin' ? (
         <main className="main">
           <TemplateAdmin />
+        </main>
+      ) : view === 'workbench' ? (
+        <main className="main">
+          <TemplateWorkbench />
         </main>
       ) : (
         <>
